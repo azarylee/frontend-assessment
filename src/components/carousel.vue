@@ -1,12 +1,16 @@
 <template>
-    <div class="block">
-    <el-carousel width="1920px" height="650px">
-      <el-carousel-item v-for="item in 4" :key="item" class="items">
-        <h3 class="small">{{ title }}</h3>
-        <p>{{ content }}</p>
-      </el-carousel-item>
-    </el-carousel>
-  </div>
+    <div id="carousel">
+        <el-carousel class="content">
+            <el-carousel-item v-for="item in 4" :key="item" class="items" v-if="flag">
+                <h3 class="small">{{ title }}</h3>
+                <p>{{ content }}</p>
+            </el-carousel-item>
+            <el-carousel-item v-for="item in 4" :key="item" class="items-sx" v-if="!flag">
+                <h3 class="small">{{ title }}</h3>
+                <p>{{ content }}</p>
+            </el-carousel-item>
+        </el-carousel>
+    </div>
 </template>
 
 <script>
@@ -14,8 +18,20 @@ export default {
     name: 'carousel',
     data:() =>({
         title: 'Hello Developer',
-        content: 'Lorem ipsum dolor sit amet,consectetur adipiscing elit.'
+        content: 'Lorem ipsum dolor sit amet,consectetur adipiscing elit.',
+        flag: true,
     }),
+    mounted() {
+        console.log(document.body.clientWidth)
+        let width = document.body.clientWidth;
+        if(width < 736){
+            console.log($('.content'))
+            this.flag = false;
+            
+            // $('.content').css({"width":'600px!important',"height":'600px!important'});
+            $('.el-carousel__container').height(411);
+        }
+    },
 }
 </script>
 
@@ -34,6 +50,10 @@ export default {
         color: #ffffff;
         font-size: 48px;
     }
+    .content{
+        width: 1920px;
+        height: 650px;
+    }
 }  
 .items:nth-child(2n) {
     background: url('http://via.placeholder.com/1920x650');
@@ -41,5 +61,13 @@ export default {
 
 .items:nth-child(2n+1) {
     background-color: #d3dce6;
+}
+.items-sx:nth-child(2n) {
+    background: url('http://via.placeholder.com/600x600');
+    background-size: cover;
+}
+.items-sx:nth-child(2n+1) {
+    background-color: #d3dce6;
+    background-size: cover;
 }
 </style>

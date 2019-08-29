@@ -1,7 +1,7 @@
 <template>
     <div id="lists">
-        <el-row type="flex" justify="center" width="100%" >
-            <el-col v-for="(o, index) in 3" :key="index" class="item">
+        <el-row width="100%" class="items_list">
+            <el-col :xs="20" :sm="20" v-for="(o, index) in 3" :key="index" class="item">
                 <el-card>
                     <img src="http://via.placeholder.com/400x300" class="image">
                     <section class="content">
@@ -56,6 +56,11 @@ export default {
         }
     }
 }
-
+@media only screen and (min-width: 736px)  {
+    .items_list{
+        display: flex;
+        justify-content: center;
+    }
+}
 
 </style>
