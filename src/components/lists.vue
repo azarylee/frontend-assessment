@@ -39,8 +39,9 @@ export default {
         justify-items: center;
         align-items: center;
         margin-left: 35.80px;
+        border-radius: 3%;
+
         .image{
-            // margin-top: 1rem;
             margin-bottom: 21px;
             width: 283.69px;
             height: 212.56px;
@@ -62,5 +63,25 @@ export default {
         justify-content: center;
     }
 }
+@media (max-width: 735px)  {
+    .items_list{
+        margin: 0 5%; 
+    }
+    .item{
+        margin-left: 0px!important;
+        width: 100%!important;
+        height: 100%!important;
+        margin-bottom: 3rem;
 
+        .image{
+            margin-bottom: 21px;
+            width: 100%!important;
+            height: 100%!important;
+        }
+
+        .content{
+            height: 100%!important;
+        }
+    }
+}
 </style>

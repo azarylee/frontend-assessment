@@ -1,15 +1,17 @@
 <template>
     <div id="carousel">
-        <el-carousel class="content">
-            <el-carousel-item v-for="item in 4" :key="item" class="items" v-if="flag">
-                <h3 class="small">{{ title }}</h3>
-                <p>{{ content }}</p>
-            </el-carousel-item>
-            <el-carousel-item v-for="item in 4" :key="item" class="items-sx" v-if="!flag">
+        <el-carousel class="content" height="650px" v-if="flag">
+            <el-carousel-item v-for="item in 4" :key="item" class="items" >
                 <h3 class="small">{{ title }}</h3>
                 <p>{{ content }}</p>
             </el-carousel-item>
         </el-carousel>
+        <el-carousel class="content-xs" :height="this.width" v-if="!flag">
+            <el-carousel-item v-for="item in 4" :key="item" class="items-sx" >
+                    <h3 class="small">{{ title }}</h3>
+                    <p>{{ content }}</p>
+            </el-carousel-item>    
+        </el-carousel>        
     </div>
 </template>
 
@@ -20,16 +22,15 @@ export default {
         title: 'Hello Developer',
         content: 'Lorem ipsum dolor sit amet,consectetur adipiscing elit.',
         flag: true,
+        width: ''
     }),
     mounted() {
         console.log(document.body.clientWidth)
         let width = document.body.clientWidth;
+        this.width = width + 'px';
         if(width < 736){
             console.log($('.content'))
             this.flag = false;
-            
-            // $('.content').css({"width":'600px!important',"height":'600px!important'});
-            $('.el-carousel__container').height(411);
         }
     },
 }
@@ -49,10 +50,6 @@ export default {
     p {
         color: #ffffff;
         font-size: 48px;
-    }
-    .content{
-        width: 1920px;
-        height: 650px;
     }
 }  
 .items:nth-child(2n) {
