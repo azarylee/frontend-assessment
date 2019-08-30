@@ -11,7 +11,7 @@ I think this is trick question, firstly, I will just look inside brackets. 'b' +
 avigator.userAgent help me to decide the user's device, and show the different div to the customer, by the way, the carousel of the mobile I used document.body.clientWidth so that the banner can be fit in different size of the device.
 
 # How to run the project
- 1 use the command __'npm install'__ to install the dependencies
- 2 __'npm run dev'__ to run the project
- 3 __'npm run build'__ to build the project by webpack
- 4 only need to upload the **dist documentary** to the server
+ 1. use the command __'npm install'__ to install the dependencies
+ 2. __'npm run dev'__ to run the project
+ 3. __'npm run build'__ to build the project by webpack
+ 4. only need to upload the **dist documentary** to the server
