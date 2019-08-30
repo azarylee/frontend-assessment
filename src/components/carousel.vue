@@ -19,8 +19,8 @@
 export default {
     name: 'carousel',
     data:() =>({
-        title: 'Hello Developer',
-        content: 'Lorem ipsum dolor sit amet,consectetur adipiscing elit.',
+        title: 'Hello Developer!',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         flag: true,
         width: ''
     }),
@@ -39,20 +39,38 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@mixin fonts($fs: 64px){
+    color: #ffffff;
+    font-size: $fs;
+    font-weight: border;
+}
 .items{
     h3 {
-        color: #ffffff;
-        font-size: 64px;
+        @include fonts;
         line-height: 100px;
         margin: 0;
         align-items: center;
         margin-top: 10%;
     }
     p {
-        color: #ffffff;
-        font-size: 48px;
+        @include fonts(48px);
     }
 }  
+
+.items-sx{
+    h3 {
+        @include fonts(58px);
+        line-height: 75px;
+        margin: 0;
+        align-items: center;
+        margin-top: 20%;
+    }
+    p {
+        @include fonts(20px);
+        word-wrap:break-word;
+        margin: 0 1.7rem;
+    }
+}
 .items:nth-child(2n) {
     background: url('http://via.placeholder.com/1920x650');
 }
