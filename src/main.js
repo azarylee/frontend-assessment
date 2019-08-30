@@ -9,6 +9,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 import $ from './common/js/jquery-3.2.1'
 import 'bootstrap'
 import './assets/css/bootstrap.min.css'
+import axios from 'axios';
+
+Vue.prototype.$axios = axios;
 
 Vue.use(ElementUI);
 Vue.config.productionTip = false

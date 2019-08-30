@@ -25,19 +25,20 @@ export default {
         width: ''
     }),
     mounted() {
-        console.log(document.body.clientWidth)
-        let width = document.body.clientWidth;
-        this.width = width + 'px';
-        if(width < 736){
-            console.log($('.content'))
-            this.flag = false;
+        this.width = document.body.clientWidth + 'px';
+        let userAgentInfo = navigator.userAgent;
+        let Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPod", "iPad"];
+        for (var i = 0; i < Agents.length; i++) {
+        if (userAgentInfo.indexOf(Agents[i]) > 0) {
+                this.flag = false;
+                break;
+            }
         }
     },
 }
 </script>
 
 <style lang="scss" scoped>
-// /* @import "../assets/css/index.scss" */
 .items{
     h3 {
         color: #ffffff;
